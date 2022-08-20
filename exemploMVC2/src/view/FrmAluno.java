@@ -8,6 +8,7 @@ package view;
 import control.AlunoController;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Aluno;
 
 /**
@@ -33,6 +34,10 @@ private AlunoController alControle;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         lblRa = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
         txtRa = new javax.swing.JTextField();
@@ -42,6 +47,34 @@ private AlunoController alControle;
         btnExcluir = new javax.swing.JButton();
         btnProcurar = new javax.swing.JButton();
         txtProcurar = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblAluno = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,6 +98,11 @@ private AlunoController alControle;
         });
 
         btnExcluir.setText("Excluir");
+        btnExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExcluirMouseClicked(evt);
+            }
+        });
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
@@ -84,31 +122,51 @@ private AlunoController alControle;
             }
         });
 
+        tblAluno.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "RA", "NOME"
+            }
+        ));
+        tblAluno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAlunoMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tblAluno);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblRa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblRa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtRa)
+                                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnCadastrar)
+                                    .addComponent(btnExcluir))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnMostrarTodos))
+                            .addComponent(txtProcurar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtRa)
-                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCadastrar)
-                            .addComponent(btnExcluir))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnMostrarTodos))
-                    .addComponent(txtProcurar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnProcurar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnProcurar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,30 +189,58 @@ private AlunoController alControle;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnProcurar))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void limpaCampos(){
+        txtNome.setText("");
+        txtRa.setText("");
+        this.txtRa.requestFocus();
+    }
+    
+    public void atualizaGrid(){
+        ArrayList<Aluno> lista = alControle.mostraTodos();
+        DefaultTableModel dados = new DefaultTableModel ();
+        dados.setNumRows(0);
+        dados.addColumn("RA");
+        dados.addColumn("Nome");
+        //percorre Array
+        for (Aluno a: lista){
+            dados.addRow(new Object[]{a.getRa(),a.getNome()});
+    }
+    
+    
+        tblAluno.setModel(dados);
+    }
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         String nome = this.txtNome.getText();
         int ra = Integer.parseInt(this.txtRa.getText());
         alControle.cadastrar(ra, nome);
+        
+        //Atualizando Grid
+        this.atualizaGrid();
+        this.limpaCampos();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnMostrarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarTodosActionPerformed
-    ArrayList<Aluno> lista = alControle.mostraTodos();
-    String result = "";
+        this.atualizaGrid();
+    
+    /*String result = "";
     for (Aluno a: lista)
     {
         result = result.concat(a.getRa() + " " + a.getNome() + "\n");
     }
-    JOptionPane.showMessageDialog(null, result);
+    JOptionPane.showMessageDialog(null, result);*/
+    
     }//GEN-LAST:event_btnMostrarTodosActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-      
+
          
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -168,6 +254,21 @@ private AlunoController alControle;
     private void txtProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProcurarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtProcurarActionPerformed
+
+    private void tblAlunoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAlunoMouseClicked
+        int linhaSelecionada = this.tblAluno.getSelectedRow();
+        String raSelecionado = this.tblAluno.getValueAt(linhaSelecionada, 0).toString();
+        txtProcurar.setText(raSelecionado);
+        
+    }//GEN-LAST:event_tblAlunoMouseClicked
+
+    private void btnExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExcluirMouseClicked
+        int raProcurado = Integer.parseInt(txtProcurar.getText());
+        alControle.excluir(raProcurado);
+        
+        this.atualizaGrid();
+        this.limpaCampos();
+    }//GEN-LAST:event_btnExcluirMouseClicked
 
     /**
      * @param args the command line arguments
@@ -209,8 +310,14 @@ private AlunoController alControle;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnMostrarTodos;
     private javax.swing.JButton btnProcurar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblRa;
+    private javax.swing.JTable tblAluno;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtProcurar;
     private javax.swing.JTextField txtRa;
